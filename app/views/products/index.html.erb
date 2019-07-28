@@ -1,0 +1,16 @@
+
+<h1>In the cart now:</h1>
+<%@cart = cart%>
+<%if @cart%>
+	<%@cart.each do |c|%>
+		<%=c%> <br>
+	<%end%>
+<%end%>
+
+<h2>Add more itemes to cart:</h2>
+<%= form_tag("/add", method: "get") do %>
+  <%= text_field_tag(:product) %>
+  <%= submit_tag("add to cart") %>
+<% end %>
+
+<%= button_to "empty cart", {action: "empty"}, {method: "get"}%>
